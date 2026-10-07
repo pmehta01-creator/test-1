@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>hellow world</title>
+  <title>hello world</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,11 +13,12 @@
     body { background: #e32636; color: #fff4e8; font-family: 'DM Mono', monospace; }
     #stage { position: relative; width: 100%; height: 100%; overflow: hidden; }
     #hello { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: clamp(2rem, 8vw, 7rem); font-weight: 500; letter-spacing: -.07em; line-height: 1; will-change: transform; }
+    @media (prefers-reduced-motion: reduce) { #hello { animation: none; } }
   </style>
 </head>
 <body>
   <main id="stage" aria-label="A bouncing hello world">
-    <div id="hello">hellow world</div>
+    <div id="hello">hello world</div>
   </main>
   <script>
     const stage = document.querySelector('#stage');
