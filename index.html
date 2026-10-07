@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hellow world</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { background: #e32636; color: #fff4e8; font-family: 'DM Mono', monospace; }
+    #stage { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    #hello { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: clamp(2rem, 8vw, 7rem); font-weight: 500; letter-spacing: -.07em; line-height: 1; will-change: transform; }
+  </style>
+</head>
+<body>
+  <main id="stage" aria-label="A bouncing hello world">
+    <div id="hello">hellow world</div>
+  </main>
+  <script>
+    const stage = document.querySelector('#stage');
+    const hello = document.querySelector('#hello');
+    let x = 30, y = 30, vx = 2.7, vy = 2.1;
+    function frame() {
+      const maxX = Math.max(0, stage.clientWidth - hello.offsetWidth);
+      const maxY = Math.max(0, stage.clientHeight - hello.offsetHeight);
+      x += vx; y += vy;
+      if (x <= 0 || x >= maxX) { x = Math.max(0, Math.min(x, maxX)); vx *= -1; }
+      if (y <= 0 || y >= maxY) { y = Math.max(0, Math.min(y, maxY)); vy *= -1; }
+      hello.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(frame);
+    }
+    frame();
+  </script>
+</body>
+</html>
